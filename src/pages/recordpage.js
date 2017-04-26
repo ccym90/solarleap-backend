@@ -12,6 +12,7 @@ class Recordpage extends Component {
     return (
       <div className="recordpage">
         <Header />
+        <br/>
         <Grid>
           <Row xs={6} md={6} >
             <Row className="videorow">
