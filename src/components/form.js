@@ -47,7 +47,7 @@ class Userform extends React.Component {
         </FormGroup>
 
         <FormGroup>
-          <Col smOffset={2} sm={10}>
+          <Col smOffset={7} sm={8}>
             <Tooltip title='Click here to save your video to the library' position='right'>
             <Button className='btn btn-primary' ref='save' type="submit">
             Save
