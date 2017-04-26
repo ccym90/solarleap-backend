@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ReactDOM from 'react-dom';
-import { Grid, Row, Col } from 'react-bootstrap';
-import Header from './components/header';
-import Recordpage from './pages/recordpage';
+import RecordPage from './pages/recordpage';
+import Librarypage from './pages/librarypage';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="header">
-          <Header />
-        </div>
-        <Recordpage />
 
-      </div>
-    );
-  }
-}
-
-export default App;
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>No match for <code>{location.pathname}</code></h3>
+  </div>
+)
+ReactDOM.render(
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Librarypage} />
+      <Route exact path="/Record" component={RecordPage} />
+      <Route component={NoMatch}/>
+    </Switch>
+  </Router>
+   ,document.getElementById('root')
+);

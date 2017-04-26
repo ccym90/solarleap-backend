@@ -1,9 +1,7 @@
 import React from 'react';
 
 class Playback extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
@@ -11,9 +9,9 @@ class Playback extends React.Component {
       <div>
         <video
         autoPlay
-        ref= 'playbackVideo'
+        ref='playbackVideo'
         src={this.props.src}
-        controls= {true}
+        controls={true}
         style={{width: 320, height: 240}}
         />
       </div>

@@ -3,9 +3,6 @@ import { FormGroup, Form, Button, ControlLabel, FormControl, Col } from 'react-b
 import Tooltip from 'react-tooltip-component';
 
 class Userform extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

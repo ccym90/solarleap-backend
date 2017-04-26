@@ -3,9 +3,6 @@ import Tooltip from 'react-tooltip-component';
 import {ButtonToolbar, button, Col} from 'react-bootstrap';
 
 class Buttons extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
