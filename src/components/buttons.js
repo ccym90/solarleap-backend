@@ -6,9 +6,6 @@ import { captureUserMedia } from '../App.js';
 import RecordRTC from 'recordrtc';
 import { connect } from 'react-redux';
 
-
-
-
 class Buttons extends React.Component {
 
 
@@ -48,14 +45,6 @@ class Buttons extends React.Component {
     let {dispatch} = this.props;
     dispatch(onPreview(url))
   }
-
-  // startPreview() {
-  //   let buffer = this.state.recordVideo.blob;
-  //   this.setState({preview: window.URL.createObjectURL(buffer)});
-  //   console.log('the src', this.refs.playbackVideo);
-  //   console.log('buffer', buffer);
-  //   this.refs.playbackVideo.controls = true;
-  // }
 
   download = (e) => {
     let recordedblob = this.state.recordVideo.blob;

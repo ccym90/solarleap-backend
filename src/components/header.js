@@ -21,7 +21,7 @@ class Header extends Component {
       <Navbar fixedTop inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">SolarLeap Video Uploader</a>
+            <a href="#">Video Uploader</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>

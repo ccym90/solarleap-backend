@@ -1,8 +1,17 @@
 import React from 'react';
 import { FormGroup, Form, Button, ControlLabel, FormControl, Col } from 'react-bootstrap';
 import Tooltip from 'react-tooltip-component';
+import { connect } from 'react-redux';
+import { saving } from '../redux/actions';
 
 class Userform extends React.Component {
+
+  saveVideo = (e) => {
+    console.log('click save');
+    e.preventDefault();
+    let {dispatch} = this.props;
+    dispatch(saving());
+  }
 
   render() {
     return (
@@ -46,7 +55,7 @@ class Userform extends React.Component {
         <FormGroup>
           <Col smOffset={7} sm={8}>
             <Tooltip title='Click here to save your video to the library' position='right'>
-            <Button className='btn btn-primary' ref='save' type="submit">
+            <Button className='btn btn-primary' ref='save' type="submit" onClick={this.saveVideo}>
             Save
             </Button>
             </Tooltip>
@@ -57,5 +66,9 @@ class Userform extends React.Component {
     )
   }
 }
-
-export default Userform;
+function mapStateToProps(state, props) {
+  return {
+    uploadSuccess: state
+  }
+}
+export default connect(mapStateToProps)(Userform);
