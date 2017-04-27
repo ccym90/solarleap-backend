@@ -9,10 +9,13 @@ const initialState = {
   uploadSuccess: null
 };
 
-export var streaming = (state = '', action) => {
+export var streamingReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_STREAM':
-      return action.src;
+      return {
+        ...state,
+        src: action.src
+      }
     default:
       return state;
   }

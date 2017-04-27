@@ -1,10 +1,10 @@
 import { createStore, compose, combineReducers } from 'redux';
-import { streaming } from './reducers';
+import { streamingReducer } from './reducers';
 
 export let initStore = () => {
 
   const reducer = combineReducers({
-    src: streaming
+    src: streamingReducer
   });
 
   const store = createStore(reducer, compose(

@@ -14,11 +14,11 @@ class Recordpage extends Component {
         <Header />
         <br/>
         <Grid>
-          <Row xs={6} md={6} >
+          <Row>
             <Row className="videorow">
-                <Col xs={6} md={6} />
+                <Col />
                   <Webcam />
-                <Col xs={6} md={6} />
+                <Col />
                   <Playback />
             </Row>
             <hr/>
