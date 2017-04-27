@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../pages/recordpage.css';
 
-class Playback extends React.Component {
+class Playback extends Component {
 
   render() {
     return (
 
-      <div>
+      <div className="previewVid">
         <video
         autoPlay
         ref='playbackVideo'
         src={this.props.src}
-        controls={true}
         style={{width: 320, height: 240}}
         />
       </div>

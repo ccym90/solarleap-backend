@@ -5,6 +5,13 @@ return {
   };
 };
 
+// export var stopStreaming = () => {
+// return {
+//     type: 'STOP_STREAM',
+//
+//   };
+// };
+
 // export var startRecording = (recordVideo, recording) => {
 // 	return {
 //    };

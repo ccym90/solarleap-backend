@@ -5,6 +5,7 @@ import Playback from '../components/playbackvideo';
 import Userform from '../components/form';
 import Buttons from '../components/buttons';
 import Header from '../components/header';
+import './recordpage.css';
 
 
 class Recordpage extends Component {

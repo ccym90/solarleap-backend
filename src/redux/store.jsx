@@ -4,7 +4,9 @@ import { streamingReducer } from './reducers';
 export let initStore = () => {
 
   const reducer = combineReducers({
-    src: streamingReducer
+    src: streamingReducer,
+    // stopStreamingReducer
+
   });
 
   const store = createStore(reducer, compose(
