@@ -18,7 +18,7 @@ class Header extends Component {
   render() {
 
     return (
-      <Navbar fixedTop inverse collapseOnSelect>
+      <Navbar fixedTop fluid inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">Video Uploader</a>

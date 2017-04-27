@@ -11,16 +11,16 @@ import './recordpage.css';
 class Recordpage extends Component {
   render() {
     return (
+      <div className="container">
       <div className="recordpage">
-        <Header />
-        <br/>
-        <Grid>
-          <Row>
+          <Header />
+          <br/>
+          <Grid>
             <Row className="videorow">
                 <Col md={6} mdPull={6} />
                   <Webcam />
                   <br />
-                
+
                 <Col  md={6} mdPull={6}/>
                   <Playback />
             </Row>
@@ -36,8 +36,8 @@ class Recordpage extends Component {
             </Row>
             <hr/>
             <br/>
-          </Row>
-        </Grid>
+          </Grid>
+        </div>
       </div>
     );
   }
