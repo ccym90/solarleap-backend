@@ -5,8 +5,10 @@ import Tooltip from 'react-tooltip-component';
 import Header from '../components/header';
 
 class uploadPage extends Component {
+
   render() {
     return (
+
 
       <div className="recordpage">
         <Header />
@@ -82,7 +84,6 @@ class uploadPage extends Component {
           </Row>
         </Grid>
       </div>
-
 
     );
   }
