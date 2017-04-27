@@ -5,7 +5,7 @@ return {
   };
 };
 
-<<<<<<< HEAD
+
 // export var stopStreaming = () => {
 // return {
 //     type: 'STOP_STREAM',
@@ -36,7 +36,7 @@ return {
 //   };
 // };
 //
-=======
+
 export var beginRecording = (recordVideo, recording) => {
 	return {
     type: 'RECORDING',
@@ -65,7 +65,7 @@ export var downloaded = (downloaded) => {
   };
 };
 
->>>>>>> 024e0adcabd8e3610c614469483fa19274803847
+
 // export var save = (uploadSuccess) => {
 //   return {
 //

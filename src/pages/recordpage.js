@@ -17,9 +17,11 @@ class Recordpage extends Component {
         <Grid>
           <Row>
             <Row className="videorow">
-                <Col />
+                <Col md={6} mdPull={6} />
                   <Webcam />
-                <Col />
+                  <br />
+                
+                <Col  md={6} mdPull={6}/>
                   <Playback />
             </Row>
             <hr/>

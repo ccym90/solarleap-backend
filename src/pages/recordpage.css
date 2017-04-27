@@ -24,12 +24,10 @@ video {
 
 video:last-of-type {
  margin: 0 0 20px 0;
+ background: cadetblue;
+ float: left;
 }
 
-.gum {
- margin: 0 20px 20px 0;
-
-}
 
 @media screen and (max-width: 500px) {
  button {
@@ -44,12 +42,4 @@ video:last-of-type {
    margin: 0 10px 10px 0;
    width: calc(50vw - 48px);
  }
-
-.gum {
-   margin: 0 10px 10px 0;
- }
-}
-
-.previewVid {
-  background-color: black;
 }

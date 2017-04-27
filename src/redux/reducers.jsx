@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // const initialState = {
 //   recordVideo: null,
 //   src: null,
@@ -9,7 +9,7 @@
 //   downloaded: false,
 //   uploadSuccess: null
 // };
-=======
+
 const initialState = {
   recordVideo: null,
   src: null,
@@ -20,7 +20,7 @@ const initialState = {
   downloaded: false,
   uploadSuccess: false
 };
->>>>>>> 024e0adcabd8e3610c614469483fa19274803847
+
 
 export var streamingReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +34,7 @@ export var streamingReducer = (state = initialState, action) => {
   }
 };
 
-<<<<<<< HEAD
+
 // export var stopStreamingReducer = (state = initialState.src, action) => {
 //   switch (action.type) {
 //     case 'STOP_STREAM':
@@ -46,7 +46,7 @@ export var streamingReducer = (state = initialState, action) => {
 //       return state;
 //   }
 // };
-=======
+
 export var recordingReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'RECORDING':
@@ -81,4 +81,3 @@ export var downloadReducer = (state = '', action) => {
       return state;
   }
 };
->>>>>>> 024e0adcabd8e3610c614469483fa19274803847

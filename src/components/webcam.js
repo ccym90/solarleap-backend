@@ -38,7 +38,7 @@ class Webcam extends React.Component {
     return (
       <div>
       <video
-      id='gum'
+      className='previewVid'
       ref='video'
       autoPlay
       src={this.props.streaming.src}

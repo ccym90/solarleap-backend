@@ -6,9 +6,11 @@ class Playback extends Component {
   render() {
     return (
 
-      <div className="previewVid">
+      <div>
         <video
         autoPlay
+        className='previewVid'
+        controls
         ref='playbackVideo'
         src={this.props.src}
         style={{width: 320, height: 240}}
