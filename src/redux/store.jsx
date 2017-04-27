@@ -5,11 +5,16 @@ export let initStore = () => {
 
   const reducer = combineReducers({
     src: streamingReducer,
+
+    // stopStreamingReducer
+
+
     recording: recordingReducer,
     stopping: stopRecordingReducer,
     downloaded: downloadReducer,
     preview: previewReducer
     // recording: recordingReducer
+
   });
 
   const initialState = {

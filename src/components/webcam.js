@@ -2,7 +2,7 @@ import React from 'react';
 import { captureUserMedia } from '../App.js';
 import { connect } from 'react-redux';
 import { streaming } from '../redux/actions';
-
+import '../pages/recordpage.css';
 
 const hasGetUserMedia = !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
   navigator.mozGetUserMedia || navigator.msGetUserMedia);
@@ -38,6 +38,7 @@ class Webcam extends React.Component {
     return (
       <div>
       <video
+      className='previewVid'
       ref='video'
       autoPlay
       src={this.props.streaming.src}

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { preview } from '../redux/actions';
 import { connect } from 'react-redux';
+import '../pages/recordpage.css';
 
-
-class Playback extends React.Component {
+class Playback extends Component {
 
   render() {
     return (
@@ -11,6 +11,8 @@ class Playback extends React.Component {
       <div>
         <video
         autoPlay
+        className='previewVid'
+        controls
         ref='playbackVideo'
         src={this.props.preview.preview}
         controls={true}
