@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -20,7 +19,7 @@ const NoMatch = ({ location }) => (
 )
 
 ReactDOM.render(
-  <Provider store= {store}>
+  <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/" component={Librarypage} />

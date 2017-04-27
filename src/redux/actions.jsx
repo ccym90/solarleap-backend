@@ -5,17 +5,24 @@ return {
   };
 };
 
-// export var startRecording = (recordVideo, recording) => {
-// 	return {
-//    };
-// };
-//
-// export var stopRecording = (recording, recorded, download) => {
-//   return {
-//
-//   };
-// };
-//
+export var startRecording = (recordVideo, recording) => {
+	return {
+    type: 'RECORDING',
+    recordVideo,
+    recording
+   };
+};
+
+export var stopRecording = (recordVideo, recording, recorded, download) => {
+  return {
+    type: 'STOP_RECORDING',
+    recordVideo,
+    recording,
+    recorded,
+    download
+  };
+};
+
 // export var onPreview = (preview) => {
 //   return {
 //
