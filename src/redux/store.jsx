@@ -1,12 +1,13 @@
 import { createStore, compose, combineReducers } from 'redux';
-import { streamingReducer, recordingReducer, stopRecordingReducer } from './reducers';
+import { streamingReducer, recordingReducer, stopRecordingReducer, downloadReducer} from './reducers';
 
 export let initStore = () => {
 
   const reducer = combineReducers({
     src: streamingReducer,
     recording: recordingReducer,
-    stopping: stopRecordingReducer
+    stopping: stopRecordingReducer,
+    downloaded: downloadReducer
     // recording: recordingReducer
   });
 

@@ -43,5 +43,15 @@ export var stopRecordingReducer = (state = '', action) => {
     default:
       return state;
   }
+};
 
-}
+export var downloadReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'DOWNLOADED':
+      return {
+        downloaded: true
+      }
+    default:
+      return state;
+  }
+};

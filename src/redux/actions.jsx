@@ -20,18 +20,19 @@ export var finishingRecording = (recording, recorded) => {
   };
 };
 
-// export var onPreview = (preview) => {
-//   return {
-//
-//   };
-// };
-//
-// export var download = () => {
-//   return {
-//
-//   };
-// };
-//
+export var onPreview = () => {
+  return {
+
+  };
+};
+
+export var downloaded = (downloaded) => {
+  return {
+    type: 'DOWNLOADED',
+    downloaded
+  };
+};
+
 // export var save = (uploadSuccess) => {
 //   return {
 //
