@@ -1,5 +1,5 @@
 import { createStore, compose, combineReducers } from 'redux';
-import { streamingReducer, recordingReducer, stopRecordingReducer, downloadReducer} from './reducers';
+import { streamingReducer, recordingReducer, stopRecordingReducer, downloadReducer, previewReducer} from './reducers';
 
 export let initStore = () => {
 
@@ -7,7 +7,8 @@ export let initStore = () => {
     src: streamingReducer,
     recording: recordingReducer,
     stopping: stopRecordingReducer,
-    downloaded: downloadReducer
+    downloaded: downloadReducer,
+    preview: previewReducer
     // recording: recordingReducer
   });
 

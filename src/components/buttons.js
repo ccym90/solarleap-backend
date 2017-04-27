@@ -1,10 +1,11 @@
 import React from 'react';
 import Tooltip from 'react-tooltip-component';
 import {ButtonToolbar, button, Col} from 'react-bootstrap';
-import { beginRecording, finishingRecording, downloaded } from '../redux/actions';
+import { beginRecording, finishingRecording, downloaded, onPreview } from '../redux/actions';
 import { captureUserMedia } from '../App.js';
 import RecordRTC from 'recordrtc';
 import { connect } from 'react-redux';
+
 
 
 
@@ -42,26 +43,30 @@ class Buttons extends React.Component {
 
   startPreview = (e) => {
     let buffer = this.state.recordVideo.blob;
-    console.log('buffer', buffer);
-    this.setState({preview: window.URL.createObjectURL(buffer)});
-    console.log('preview', this.state.preview);
-    console.log('the src', this.refs.playbackVideo);
-    console.log('buffer', buffer);
-    this.refs.playbackVideo.controls = true;
+    let url = window.URL.createObjectURL(buffer)
+    console.log('blob url',url);
+    let {dispatch} = this.props;
+    dispatch(onPreview(url))
   }
+
+  // startPreview() {
+  //   let buffer = this.state.recordVideo.blob;
+  //   this.setState({preview: window.URL.createObjectURL(buffer)});
+  //   console.log('the src', this.refs.playbackVideo);
+  //   console.log('buffer', buffer);
+  //   this.refs.playbackVideo.controls = true;
+  // }
 
   download = (e) => {
     let recordedblob = this.state.recordVideo.blob;
     let url = window.URL.createObjectURL(recordedblob);
     console.log('URL', url);
     let a = document.createElement('a');
-    console.log('Do we have and A', a);
     a.style.display = 'none';
     a.href = url;
     a.download = 'test.webm';
     document.body.appendChild(a);
     a.click();
-    console.log('this is a', a);
     setTimeout(function() {
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);

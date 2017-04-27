@@ -37,6 +37,7 @@ export var stopRecordingReducer = (state = '', action) => {
   switch (action.type) {
     case 'STOP_RECORDING':
       return {
+        ...state,
         recording: false,
         recorded: true,
       }
@@ -49,7 +50,20 @@ export var downloadReducer = (state = '', action) => {
   switch (action.type) {
     case 'DOWNLOADED':
       return {
+        ...state,
         downloaded: true
+      }
+    default:
+      return state;
+  }
+};
+
+export var previewReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'PREVIEW':
+      return {
+        ...state,
+        preview: action.preview
       }
     default:
       return state;

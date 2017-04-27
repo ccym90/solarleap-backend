@@ -1,4 +1,7 @@
 import React from 'react';
+import { preview } from '../redux/actions';
+import { connect } from 'react-redux';
+
 
 class Playback extends React.Component {
 
@@ -9,7 +12,7 @@ class Playback extends React.Component {
         <video
         autoPlay
         ref='playbackVideo'
-        src={this.props.src}
+        src={this.props.preview.preview}
         controls={true}
         style={{width: 320, height: 240}}
         />
@@ -17,5 +20,9 @@ class Playback extends React.Component {
     )
   }
 }
-
-export default Playback;
+function mapStateToProps(state, props) {
+  return {
+    preview: state.preview
+  }
+}
+export default connect(mapStateToProps)(Playback);

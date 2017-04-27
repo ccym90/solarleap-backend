@@ -20,9 +20,10 @@ export var finishingRecording = (recording, recorded) => {
   };
 };
 
-export var onPreview = () => {
+export var onPreview = (preview) => {
   return {
-
+    type: 'PREVIEW',
+    preview
   };
 };
 
