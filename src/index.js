@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 // import App from './App';
+=======
+>>>>>>> 024e0adcabd8e3610c614469483fa19274803847
 import './index.css';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';

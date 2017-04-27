@@ -10,17 +10,7 @@ const hasGetUserMedia = !!(navigator.getUserMedia || navigator.webkitGetUserMedi
 
 class Webcam extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      constraints: {video: true, audio: true}
-    }
-    this.requestUserMedia = this.requestUserMedia.bind(this);
-  };
-
   componentDidMount() {
-    const constraints = this.state.contraints;
     console.log('mounted!');
     if(!hasGetUserMedia) {
       alert("Your browser cannot stream from your webcam. Please switch to Chrome or Firefox.");
@@ -30,7 +20,6 @@ class Webcam extends React.Component {
   }
 
   requestUserMedia() {
-    const constraints = this.state.constraints;
     let {dispatch} = this.props;
     console.log('requestUserMedia')
     let src = "";
@@ -40,8 +29,6 @@ class Webcam extends React.Component {
       console.log('setting state', src)
     });
   }
-
-
 
   render() {
 
