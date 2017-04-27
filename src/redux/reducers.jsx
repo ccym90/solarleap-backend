@@ -1,15 +1,15 @@
-// const initialState = {
-//   recordVideo: null,
-//   src: null,
-//   preview: null,
-//   download: null,
-//   recording: false,
-//   recorded: false,
-//   downloaded: false,
-//   uploadSuccess: null
-// };
+const initialState = {
+  recordVideo: null,
+  src: null,
+  preview: null,
+  download: null,
+  recording: false,
+  recorded: false,
+  downloaded: false,
+  uploadSuccess: false
+};
 
-export var streamingReducer = (state = '', action) => {
+export var streamingReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_STREAM':
       return {
@@ -21,12 +21,11 @@ export var streamingReducer = (state = '', action) => {
   }
 };
 
-export var recordingReducer = (state = '', action) => {
+export var recordingReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'RECORDING':
       return {
         ...state,
-        recordVideo: action.recordVideo,
         recording: true
       }
     default:
@@ -38,11 +37,8 @@ export var stopRecordingReducer = (state = '', action) => {
   switch (action.type) {
     case 'STOP_RECORDING':
       return {
-        ...state,
-        recordVideo: action.recordVideo,
         recording: false,
         recorded: true,
-        download: action.download
       }
     default:
       return state;

@@ -5,21 +5,18 @@ return {
   };
 };
 
-export var startRecording = (recordVideo, recording) => {
+export var beginRecording = (recordVideo, recording) => {
 	return {
     type: 'RECORDING',
-    recordVideo,
     recording
    };
 };
 
-export var stopRecording = (recordVideo, recording, recorded, download) => {
+export var finishingRecording = (recording, recorded) => {
   return {
     type: 'STOP_RECORDING',
-    recordVideo,
     recording,
     recorded,
-    download
   };
 };
 
