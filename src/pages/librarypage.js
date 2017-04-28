@@ -11,15 +11,16 @@ class Librarypage extends Component {
   searchbtn = (e) => {
 
     let data = {}
-    data.searchbar = this.refs.searchbar.value;
+      data.searchbar = this.refs.searchbar.value;
+      
     console.log('hi from search btn');
     // let data = data.searchbar;
-    console.log(data);
+    console.log(data.searchbar);
 
-    axios.get('/search/' + data)
+    axios.get('/search/' + data.searchbar)
     .then(function(response){
       console.log(response.data); // ex.: { user: 'Your User'}
-      console.log(response.status); // ex.: 200
+
     })
     .catch(function (error) {
       console.log(error);

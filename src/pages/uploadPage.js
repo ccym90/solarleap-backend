@@ -21,9 +21,9 @@ class uploadPage extends Component {
 
     let file = new FormData()
       file.append('file', document);
-      file.append('info', metaData)
+      file.append('info', { title : metaData.title, author: metaData.author, description: metaData.description, topics: metaData.topics  })
 
-
+      console.log(file)
 
       // { title : data.title, author: data.author, description: data.description, topics: data.topics  }
 
