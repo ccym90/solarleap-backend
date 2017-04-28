@@ -13,38 +13,33 @@ class Librarypage extends Component {
     let data = {}
     data.searchbar = this.refs.searchbar.value;
     console.log('hi from search btn');
-    // let data = data.searchbar;
     console.log(data);
 
-    axios.get('/search/' + data)
+    axios.get('/search/' + data.searchbar)
     .then(function(response){
-      console.log(response.data); // ex.: { user: 'Your User'}
-      console.log(response.status); // ex.: 200
+      console.log('it worked', response.data); // ex.: { user: 'Your User'}
+      console.log('it worked', response.status); // ex.: 200
     })
     .catch(function (error) {
       console.log(error);
-      console.log('error getting video');
+      console.log('error getting video', error.status);
     });
-  //
-  //   axios({
-  //   method:'get',
-  //   url:'http://bit.ly/2mTM3nY/'' + data.searchbar,
-  //   responseType:'stream'
-  // })
-  //   .then(function(response) {
-  //   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-  // });
-
-  //   axios.get('/search', {
-  //     params: {
-  //       data
-  //     }
-  //   })
-  //   .then(function (response) {
-  //     console.log(response);
-  //     console.log('have we got the data', data)
-  //   })
   }
+
+  componentDidMount() {
+
+    axios.get('/all')
+    .then(function(response){
+      console.log('it worked', response.status); // ex.: 200
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+      console.log('error getting video', error.status);
+    });
+  }
+
+
   // router.get('/:input', function(req, res, next) {
   //
   //   var input = req.params.input;
