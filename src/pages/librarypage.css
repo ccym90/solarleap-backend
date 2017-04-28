@@ -29,3 +29,15 @@
 .custom-search-input .glyphicon-search{
 	font-size: 23px;
 }*/
+
+.searchbar {
+
+    padding-right: 50px;
+}
+
+.sbtn {
+    margin-left: -50px;
+    color: #ffffff;
+    background-color: #F89406;
+    border: none;
+}
