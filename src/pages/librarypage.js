@@ -13,18 +13,37 @@ class Librarypage extends Component {
     let data = {}
     data.searchbar = this.refs.searchbar.value;
     console.log('hi from search btn');
+    // let data = data.searchbar;
     console.log(data);
 
-    // axios.get('/input',
-    //   { title : data.title, author: data.author, description: data.description, topics: data.topics  }
-    // )
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
+    axios.get('/search/' + data)
+    .then(function(response){
+      console.log(response.data); // ex.: { user: 'Your User'}
+      console.log(response.status); // ex.: 200
+    })
+    .catch(function (error) {
+      console.log(error);
+      console.log('error getting video');
+    });
+  //
+  //   axios({
+  //   method:'get',
+  //   url:'http://bit.ly/2mTM3nY/'' + data.searchbar,
+  //   responseType:'stream'
+  // })
+  //   .then(function(response) {
+  //   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  // });
 
+  //   axios.get('/search', {
+  //     params: {
+  //       data
+  //     }
+  //   })
+  //   .then(function (response) {
+  //     console.log(response);
+  //     console.log('have we got the data', data)
+  //   })
   }
   // router.get('/:input', function(req, res, next) {
   //
@@ -52,7 +71,7 @@ class Librarypage extends Component {
             <Row className="search">
               <div className="col-sm-10">
                 <input ref="searchbar" type="text" className="searchbar" id="searchbar" placeholder="Search" />
-                <button classname="btn btn-info" id="sbtn" onClick={this.searchbtn}>
+                <button className="btn btn-info" id="sbtn" onClick={this.searchbtn}>
                 <span className="glyphicon glyphicon-search" aria-hidden="true" />
                 </button>
               </div>
