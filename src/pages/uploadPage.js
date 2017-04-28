@@ -10,7 +10,7 @@ class uploadPage extends Component {
     return (
 
 
-      <div className="recordpage">
+      <div className="uploadPage">
         <Header />
         <br/>
         <Grid>
