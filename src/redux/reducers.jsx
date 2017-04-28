@@ -10,25 +10,29 @@ const initialState = {
 };
 
 
-export var streamingReducer = (state = initialState, action) => {
+export var streamingReducer = (state = '', action) => {
   switch (action.type) {
     case 'SET_STREAM':
       return {
         ...state,
-        src: action.src
+        src: action.src,
       }
     default:
       return state;
   }
 };
 
-export var recordingReducer = (state = initialState, action) => {
+export var recordingReducer = (state = '', action) => {
   switch (action.type) {
     case 'RECORDING':
       return {
-        ...state,
-        recording: true
+        recording: true,
       }
+      case 'PREVIEW':
+        return {
+          ...state,
+          preview: null,
+        }
     default:
       return state;
   }

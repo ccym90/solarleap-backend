@@ -1,14 +1,15 @@
 export var streaming = (src) => {
 return {
     type: 'SET_STREAM',
-    src
+    src,
   };
 };
 
-export var beginRecording = (recordVideo, recording) => {
+export var beginRecording = (recording, preview) => {
 	return {
     type: 'RECORDING',
-    recording
+    recording,
+    preview
    };
 };
 
