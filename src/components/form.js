@@ -38,9 +38,6 @@ class Userform extends React.Component {
 
   }
 
-
-
-
   render() {
     return (
 
@@ -48,30 +45,34 @@ class Userform extends React.Component {
               <div className="form-group">
                 <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
                 <div className="col-sm-10">
-                  <input ref="titleInput" type="text" className="form-control" id="inputPassword3" placeholder="Title" />
+                  <input ref="titleInput" type="text" className="form-control" id="title" placeholder="e.g. Addition & Subtraction" />
                 </div>
               </div>
+
               <div className="form-group">
-                <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Author</label>
+                <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
                 <div className="col-sm-10">
-                  <input ref="authorInput" type="text" className="form-control" id="author" placeholder="Author Name" />
+                  <input ref="authorInput" type="text" className="form-control" id="author" placeholder="e.g. Joe Bloggs" />
                 </div>
               </div>
+
               <div className="form-group">
-                <label htmlFor="inputDescription" className="col-sm-2 control-label">Description</label>
+                <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
                 <div className="col-sm-10">
-                  <input ref="descriptionInput" type="text" className="form-control" id="inputDescription3" placeholder="Description" />
+                  <input ref="descriptionInput" type="text" className="form-control" id="Subject" placeholder="e.g. Math" />
                 </div>
               </div>
+
               <div className="form-group">
-                <label htmlFor="inputTopics" className="col-sm-2 control-label">Topics</label>
+                <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
                 <div className="col-sm-10">
-                  <input ref="topicsInput" type="text" className="form-control" id="inputSubject3" placeholder="Topics" />
+                  <input ref="topicsInput" type="text" className="form-control" id="description" placeholder="e.g. How to add and subtract with positive and negative numbers" />
                 </div>
               </div>
+
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
-                  <button type="submit" className="btn btn-default">Save</button>
+                  <button type="submit" className="btn btn-primary">Save</button>
                 </div>
               </div>
       </form>
