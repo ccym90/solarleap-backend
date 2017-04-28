@@ -11,24 +11,42 @@ class uploadPage extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    let data = {}
-     data.author = this.refs.authorInput.value;
-     data.title = this.refs.titleInput.value;
-     data.description = this.refs.descriptionInput.value;
-     data.topics = this.refs.topicsInput.value;
+    let metaData = {}
+    metaData.author = this.refs.authorInput.value;
+    metaData.title = this.refs.titleInput.value;
+    metaData.description = this.refs.descriptionInput.value;
+    metaData.topics = this.refs.topicsInput.value;
+
+    console.log(metaData)
+
+    let file = new FormData()
+      file.append('file', document);
+      file.append('info', { title : metaData.title, author: metaData.author, description: metaData.description, topics: metaData.topics  })
+
+      console.log(file)
+
+      // { title : data.title, author: data.author, description: data.description, topics: data.topics  }
+
+    axios.post('/upload', file)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
 
-    axios.post('/upload',
-      { title : data.title, author: data.author, description: data.description, topics: data.topics  }
-    )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
   }
+// onSubmit={this.handleSubmit}
+//
+// <form action="http:localhost:5000/upload" method="POST" encType="multipart/form-data" className="form-horizontal">
+//   <div className="form-group">
+//     <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
+//     <div className="col-sm-10">
+//       <input ref="titleInput" type="text" className="form-control" id="title" placeholder="e.g. Addition & Subtraction" />
+//     </div>
+//   </div>
 
   render() {
     return (
@@ -46,7 +64,7 @@ class uploadPage extends Component {
                 <p>Information to see how to use the uploader <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
 
 
-              <form onSubmit={this.handleSubmit} className="form-horizontal">
+              <form encType="multipart/form-data"  onSubmit={this.handleSubmit} className="form-horizontal">
                 <div className="form-group">
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
                   <div className="col-sm-10">
@@ -75,22 +93,22 @@ class uploadPage extends Component {
                 </div>
               </div>
 
-                <FormGroup controlId="formHorizontalDescription">
-                  <Col componentClass={ControlLabel} sm={2}>
-                  Choose A File
-                  <Col sm={10}>
-                    <label htmlFor="FileBox"> </label><input type="file" id="FileBox" /><br />
-                  </Col>
-                  </Col>
-                </FormGroup>
+              <div className="form-group">
+                <label htmlFor="inputTopics" className="col-sm-2 control-label">
+                  Choose A File</label>
+                <div className="col-sm-10">
+                    <label htmlFor="FileBox"> </label><input name='file' type="file" id="FileBox" /><br />
+                </div>
+              </div>
 
                 <div className="form-group">
                   <div className="col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-primary">Save</button>
+                    <button type="submit" className="btn btn-primary">Upload</button>
                   </div>
                 </div>
 
               </form>
+
               </Row>
               <hr/>
               <br/>

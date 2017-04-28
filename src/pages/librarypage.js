@@ -12,7 +12,6 @@ class Librarypage extends Component {
 
     let data = {}
     data.searchbar = this.refs.searchbar.value;
-    console.log('hi from search btn');
     console.log(data);
 
     axios.get('/search/' + data.searchbar)
