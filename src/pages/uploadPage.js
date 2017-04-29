@@ -8,45 +8,68 @@ import axios from 'axios';
 
 class uploadPage extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: "",
+      author: "",
+      subject: "",
+      description: "",
+      file: "",
+    };
+  }
+
+
+  onChange = (e) => {
+
+    let id = e.target.id;
+    let value = e.target.value;
+    let newState = this.state;
+
+    switch (id) {
+      case "title":
+        newState.title = value
+        break;
+      case "author":
+        newState.author = value
+        break;
+      case "subject":
+        newState.subject = value
+        break;
+      case "description":
+        newState.description = value
+        break;
+      case "file":
+        newState.file = e.target.files[0]
+        break;
+      default:
+        console.log('Input ' + id + 'not found');
+    }
+
+    this.setState(newState);
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
 
-    let metaData = {}
-    metaData.author = this.refs.authorInput.value;
-    metaData.title = this.refs.titleInput.value;
-    metaData.description = this.refs.descriptionInput.value;
-    metaData.topics = this.refs.topicsInput.value;
-
-    console.log(metaData)
-
-    let file = new FormData()
-      file.append('file', document);
-      file.append('info', { title : metaData.title, author: metaData.author, description: metaData.description, topics: metaData.topics  })
-
-      console.log(file)
-
-      // { title : data.title, author: data.author, description: data.description, topics: data.topics  }
-
-    axios.post('/upload', file)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    var data = new FormData();
+    data.append('title', this.state.title);
+    data.append('author', this.state.author);
+    data.append('subject', this.state.subject);
+    data.append('description', this.state.description);
+    data.append('file', this.state.file);
 
 
-
-  }
-// onSubmit={this.handleSubmit}
-//
-// <form action="http:localhost:5000/upload" method="POST" encType="multipart/form-data" className="form-horizontal">
-//   <div className="form-group">
-//     <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
-//     <div className="col-sm-10">
-//       <input ref="titleInput" type="text" className="form-control" id="title" placeholder="e.g. Addition & Subtraction" />
-//     </div>
-//   </div>
+    const config = {  };
+    axios.post('/upload', data, config)
+           .then(function (res) {
+              console.log(res);
+           })
+           .catch(function (err) {
+             console.log(err);
+           });
+  };
 
   render() {
     return (
@@ -63,33 +86,48 @@ class uploadPage extends Component {
                 <strong> Before saving, please ensure you fill out the form below.</strong> </p>
                 <p>Information to see how to use the uploader <a href="http://w3c.github.io/mediacapture-record/MediaRecorder.html" title="W3C MediaStream Recording API Editor's Draft">Editor's&nbsp;Draft</a>.</p>
 
-
-              <form encType="multipart/form-data"  onSubmit={this.handleSubmit} className="form-horizontal">
+              <form encType="multipart/form-data"className="form-horizontal" onSubmit={(e) => this.handleSubmit(e) }>
                 <div className="form-group">
                   <label htmlFor="inputTitle" className="col-sm-2 control-label">Title</label>
                   <div className="col-sm-10">
-                    <input ref="titleInput" type="text" className="form-control" id="title" placeholder="e.g. Addition & Subtraction" />
+                    <input type="text"
+                           className="form-control"
+                           id="title"
+                           placeholder="e.g. Addition & Subtraction"
+                           onChange={this.onChange}/>
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="inputAuthor3" className="col-sm-2 control-label">Name</label>
                   <div className="col-sm-10">
-                    <input ref="authorInput" type="text" className="form-control" id="author" placeholder="e.g. Joe Bloggs" />
+                    <input type="text"
+                           className="form-control"
+                           id="author"
+                           placeholder="e.g. Joe Bloggs"
+                           onChange={(e) => this.onChange(e)}/>
                   </div>
                 </div>
 
               <div className="form-group">
                 <label htmlFor="inputDescription" className="col-sm-2 control-label">Subject</label>
                 <div className="col-sm-10">
-                  <input ref="topicsInput" type="text" className="form-control" id="Subject" placeholder="e.g. Math" />
+                  <input type="text"
+                         className="form-control"
+                         id="subject"
+                         placeholder="e.g. Math"
+                         onChange={(e) => this.onChange(e)}/>
                 </div>
               </div>
 
               <div className="form-group">
                 <label htmlFor="inputTopics" className="col-sm-2 control-label">Video Description</label>
                 <div className="col-sm-10">
-                  <input ref="descriptionInput"  type="text" className="form-control" id="description" placeholder="e.g. How to add and subtract with positive and negative numbers" />
+                  <input type="text"
+                         className="form-control"
+                         id="description"
+                         placeholder="e.g. How to add and subtract with positive and negative numbers"
+                         onChange={(e) => this.onChange(e)}/>
                 </div>
               </div>
 
@@ -97,16 +135,22 @@ class uploadPage extends Component {
                 <label htmlFor="inputTopics" className="col-sm-2 control-label">
                   Choose A File</label>
                 <div className="col-sm-10">
-                    <label htmlFor="FileBox"> </label><input name='file' type="file" id="FileBox" /><br />
+                    <label htmlFor="file"> </label>
+                    <input name='file'
+                           type="file"
+                           id="file"
+                           onChange={ (e) => this.onChange(e) }/>
+                    <br />
                 </div>
               </div>
 
                 <div className="form-group">
                   <div className="col-sm-offset-2 col-sm-10">
-                    <button type="submit" className="btn btn-primary">Upload</button>
+                    <button type="submit"
+                            className="btn btn-primary"
+                            id="submit"> Upload</button>
                   </div>
                 </div>
-
               </form>
 
               </Row>
