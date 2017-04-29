@@ -14,12 +14,14 @@ class Librarypage extends Component {
     super(props);
 
     this.state = {
-      img: '',
-      title: '',
-      author: '',
-      subject: [],
-      description: '',
-      playpath: '',
+
+      library: []
+      // img: '',
+      // title: '',
+      // author: '',
+      // subject: '',
+      // description: '',
+      // playpath: ''
     }
   }
 
@@ -44,43 +46,49 @@ class Librarypage extends Component {
     let _this = this;
     axios.get('/all')
     .then(function(response){
+      let arr = response.data;
+      console.log('arr', arr);
       _this.setState({
-        img: response.data,
-        title: response.data,
-        author: response.data,
-        subject: response.data,
-        description: response.data,
-        playpath: response.data
+        library: arr
       });
       console.log('state', _this.state);
-      console.log("response data", response.data);
-      console.log('library it worked', response.status); // ex.: 200
+      console.log("response data", arr);
+      console.log('library it worked', response.status); // ex: 200
     })
     .catch(function (error) {
       console.log(error);
       console.log('error getting library', error.status);
     });
 
-
-
-
   }
 
-
-  // router.get('/:input', function(req, res, next) {
-  //
-  //   var input = req.params.input;
-  //
-  // 	Video.find({$text : { $search: input}}, function(err, video){
-  // 		if(err){
-  // 			res.json({error: err});
-  // 		}
-  //
-  //   		res.json(video);
-  // 	});
-  // });
+  componentWillUnmount() {
+    this.unmounted = true;
+  }
 
   render() {
+
+
+
+      let renderLibrary = () => {
+        return(
+          <div>
+          {this.state.library.map(function(library) {
+            return(
+              <Thumbnail src="{library.v}" alt="242x200" >
+              <h4>Title:</h4>
+              <h4>{library.title}</h4>
+              <p>Author:{library.author}</p>
+              <p>Subject:{library.topics}</p>
+              <p>Description:{library.description}</p>
+              </Thumbnail>
+            );
+          })}
+          </div>
+        )
+      }
+      // <Button bsStyle="default" block onClick={this.play}>Play</Button>
+
     return (
       <div className="container">
       <div className="librarypage">
@@ -101,13 +109,9 @@ class Librarypage extends Component {
             <Grid>
               <Row className="thumbnails">
               <Col xs={6} md={4}>
-                <Thumbnail src="{this.img}" alt="242x200" >
-                  <h3>{this.title}</h3>
-                  <p>{this.author}</p>
-                  <p>{this.subject}</p>
-                  <p>{this.description}</p>
-                  <Button bsStyle="default" block onClick={this.play}>Play</Button>
-                </Thumbnail>
+              <div>
+              {renderLibrary()}
+              </div>
               </Col>
               </Row>
             </Grid>

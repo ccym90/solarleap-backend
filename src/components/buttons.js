@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from 'react-tooltip-component';
-import {ButtonToolbar, button, Col} from 'react-bootstrap';
+import {ButtonToolbar, button, Col } from 'react-bootstrap';
 import { beginRecording, finishingRecording, downloaded, onPreview } from '../redux/actions';
 import { captureUserMedia } from '../App.js';
 import RecordRTC from 'recordrtc';
@@ -69,7 +69,7 @@ class Buttons extends React.Component {
       <div className="span10">
       <Col smOffset={5} sm={5}>
 
-      <ButtonToolbar block>
+      <ButtonToolbar>
           <Tooltip title='Click here to begin recording video' position='left'>
             <button className='btn btn-success'ref='record' onClick={this.startRecord}>Start</button>
           </Tooltip>
