@@ -7,6 +7,13 @@ const initialState = {
   recorded: false,
   downloaded: false,
   uploadSuccess: false
+  // library: {
+  //   img: "",
+  //   title: "",
+  //   author: "",
+  //   subject: "",
+  //   description:""
+  // }
 };
 
 
@@ -86,3 +93,13 @@ export var savingReducer = (state = '', action) => {
       return state;
   }
 };
+
+// export var libraryReducer = (state = initialState.library, action) => {
+//   switch (action.type) {
+//     case 'LIBRARY':
+//       return {
+//         ...state,
+//
+//       }
+//   }
+// }

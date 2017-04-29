@@ -8,6 +8,19 @@ import axios from 'axios';
 
 class Librarypage extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      img: "",
+      title: "",
+      author:"",
+      subject:"",
+      description:"",
+      playpath:""
+    }
+  }
+
   searchbtn = (e) => {
 
     let data = {}
@@ -36,6 +49,8 @@ class Librarypage extends Component {
       console.log(error);
       console.log('error getting video', error.status);
     });
+
+
   }
 
 
@@ -73,12 +88,11 @@ class Librarypage extends Component {
             <Grid>
               <Row className="thumbnails">
               <Col xs={6} md={4}>
-                <Thumbnail src="" alt="242x200">
-                  <h3>Video</h3>
-                  <p>Title</p>
-                  <p>Author</p>
-                  <p>Subject</p>
-                  <p>Description</p>
+                <Thumbnail src="{this.img}" alt="242x200" >
+                  <h3>{this.title}</h3>
+                  <p>{this.author}</p>
+                  <p>{this.subject}</p>
+                  <p>{this.description}</p>
                   <Button bsStyle="default" block onClick={this.play}>Play</Button>
                 </Thumbnail>
               </Col>
