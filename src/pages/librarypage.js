@@ -8,16 +8,18 @@ import axios from 'axios';
 
 class Librarypage extends Component {
 
+
+
   constructor(props) {
     super(props);
 
     this.state = {
-      img: "",
-      title: "",
-      author:"",
-      subject:"",
-      description:"",
-      playpath:""
+      img: '',
+      title: '',
+      author: '',
+      subject: [],
+      description: '',
+      playpath: '',
     }
   }
 
@@ -39,16 +41,27 @@ class Librarypage extends Component {
   }
 
   componentDidMount() {
-
+    let _this = this;
     axios.get('/all')
     .then(function(response){
-      console.log('it worked', response.status); // ex.: 200
-      console.log(response);
+      _this.setState({
+        img: response.data,
+        title: response.data,
+        author: response.data,
+        subject: response.data,
+        description: response.data,
+        playpath: response.data
+      });
+      console.log('state', _this.state);
+      console.log("response data", response.data);
+      console.log('library it worked', response.status); // ex.: 200
     })
     .catch(function (error) {
       console.log(error);
-      console.log('error getting video', error.status);
+      console.log('error getting library', error.status);
     });
+
+
 
 
   }
